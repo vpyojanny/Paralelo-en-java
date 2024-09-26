@@ -1,0 +1,2 @@
+[2024-09-25 14:15:52] INFO: Fetching data from API
+[2024-09-25 14:16:03] ERROR: API returned invalid response.

@@ -1,0 +1,3 @@
+[2024-09-25 11:05:45] INFO: Starting user session
+[2024-09-25 11:06:03] ERROR: Failed to authenticate user 'john_doe'
+[2024-09-25 11:06:10] ERROR: User 'john_doe' does not exist.

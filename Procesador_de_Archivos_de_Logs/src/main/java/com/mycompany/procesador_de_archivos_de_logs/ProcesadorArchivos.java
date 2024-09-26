@@ -9,12 +9,17 @@ package com.mycompany.procesador_de_archivos_de_logs;
  * @author yojan
  */
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
+import javax.mail.MessagingException;
 
 public class ProcesadorArchivos {
     
@@ -23,6 +28,13 @@ public class ProcesadorArchivos {
     
     public ProcesadorArchivos(String directoryPath) {
         this.directoryPath = directoryPath;
+    }
+
+//    private ProcesadorArchivos() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+    public ProcesadorArchivos() {
+        this.directoryPath = "C:/Users/yojan/OneDrive/Documents/GitHub/Paralelo en java/Procesador_de_Archivos_de_Logs/logs"; // Valor predeterminado
     }
 
     // Verificar archivos en la carpeta
@@ -140,7 +152,7 @@ public class ProcesadorArchivos {
         String host = "smtp.gmail.com";
         String port = "587";
         String user = "yojannyvp@gmail.com";
-        String password = "TechFun-27112015";
+        String password = "kxrs subb cyjx ftda";
 
         String toAddress = "yojannyvp@outlook.es";
         String subject = "Reporte de archivos logs";

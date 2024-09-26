@@ -8,11 +8,13 @@ package com.mycompany.procesador_de_archivos_de_logs;
  *
  * @author yojan
  */
-import com.sun.jdi.connect.Transport;
+//import com.sun.jdi.connect.Transport;
+import javax.mail.Transport;
 import javax.mail.*;
 import javax.mail.internet.*;
 import java.util.Properties;
 import java.io.File;
+
 
 public class EnvioCorreo {
     
@@ -65,19 +67,19 @@ public class EnvioCorreo {
         multipart.addBodyPart(messageBodyPart);
 
         // Agregar los archivos adjuntos
-        if (attachFiles != null && attachFiles.length > 0) {
-            for (String filePath : attachFiles) {
-                MimeBodyPart attachPart = new MimeBodyPart();
-
-                try {
-                    attachPart.attachFile(new File(filePath));
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-
-                multipart.addBodyPart(attachPart);
-            }
-        }
+//        if (attachFiles != null && attachFiles.length > 0) {
+//            for (String filePath : attachFiles) {
+//                MimeBodyPart attachPart = new MimeBodyPart();
+//
+//                try {
+//                    attachPart.attachFile(new File(filePath));
+//                } catch (Exception ex) {
+//                    ex.printStackTrace();
+//                }
+//
+//                multipart.addBodyPart(attachPart);
+//            }
+//        }
 
         // Establecer el contenido del correo
         msg.setContent(multipart);
@@ -92,11 +94,11 @@ public class EnvioCorreo {
         // Configuración de ejemplo para SMTP (Gmail)
         String host = "smtp.gmail.com";
         String port = "587";
-        String user = "tuemail@gmail.com";  // Tu correo
-        String password = "tu_contraseña";  // Tu contraseña
+        String user = "yojannyvp@gmail.com";  // Tu correo
+        String password = "kxrs subb cyjx ftda";  // Tu contraseña
 
         // Receptor del correo
-        String toAddress = "destinatario@gmail.com";
+        String toAddress = "yojannyvp@outlook.es";
         String subject = "Reporte de archivos logs";
         String message = "Se adjuntan los archivos .rar con los logs procesados.";
 
