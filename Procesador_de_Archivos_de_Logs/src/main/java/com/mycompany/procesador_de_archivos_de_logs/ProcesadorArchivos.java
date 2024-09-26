@@ -123,8 +123,8 @@ public class ProcesadorArchivos {
         System.out.println("Archivos comprimidos correctamente.");
     }
 
-    public static void main(String[] args) {
-        String logDirectory = "C:/ruta/a/tu/carpeta/logs"; // Cambia esto por tu directorio
+    public void processLogsAndSendEmail() {
+        String logDirectory = "C:/Users/yojan/OneDrive/Documents/GitHub/Paralelo en java/Procesador_de_Archivos_de_Logs/logs"; // Cambia esto por tu directorio
         ProcesadorArchivos processor = new ProcesadorArchivos(logDirectory);
 
         int errorFiles = processor.countFilesWithErrors();
@@ -133,6 +133,33 @@ public class ProcesadorArchivos {
         System.out.println("Archivos con errores: " + errorFiles);
         System.out.println("Archivos sin errores: " + nonErrorFiles);
 
+        // Comprimir archivos
         processor.compressErrorAndNonErrorFiles();
+
+        // Enviar correo con archivos adjuntos
+        String host = "smtp.gmail.com";
+        String port = "587";
+        String user = "yojannyvp@gmail.com";
+        String password = "TechFun-27112015";
+
+        String toAddress = "yojannyvp@outlook.es";
+        String subject = "Reporte de archivos logs";
+        String message = "Se adjuntan los archivos .rar con los logs procesados.";
+
+        String[] attachFiles = new String[2];
+        attachFiles[0] = "logs_with_errors.rar";
+        attachFiles[1] = "logs_without_errors.rar";
+
+        try {
+            EnvioCorreo mailer = new EnvioCorreo(host, port, user, password);
+            mailer.sendEmailWithAttachments(toAddress, subject, message, attachFiles);
+        } catch (MessagingException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        ProcesadorArchivos logProcessor = new ProcesadorArchivos();
+        logProcessor.processLogsAndSendEmail();
     }
 }
