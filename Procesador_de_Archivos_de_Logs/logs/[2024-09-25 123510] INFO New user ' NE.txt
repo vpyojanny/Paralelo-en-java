@@ -1,2 +1,0 @@
-[2024-09-25 12:35:10] INFO: New user 'paul' created account.
-[2024-09-25 12:36:20] INFO: Welcome email sent to user 'paul'.

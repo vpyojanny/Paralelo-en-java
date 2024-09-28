@@ -30,7 +30,7 @@ public class EnvioCorreo {
         this.password = password;
     }
 
-    public void sendEmailWithAttachments(String toAddress, String subject, String message, String[] attachFiles)
+    public void sendEmailWithAttachments(String toAddress, String subject, String message)
             throws MessagingException {
         
         // Configuración de propiedades del servidor de correo
@@ -90,7 +90,7 @@ public class EnvioCorreo {
         System.out.println("Correo enviado con éxito.");
     }
 
-    public static void main(String[] args) {
+    public static void main() {
         // Configuración de ejemplo para SMTP (Gmail)
         String host = "smtp.gmail.com";
         String port = "587";
@@ -99,17 +99,18 @@ public class EnvioCorreo {
 
         // Receptor del correo
         String toAddress = "yojannyvp@outlook.es";
-        String subject = "Reporte de archivos logs";
-        String message = "Se adjuntan los archivos .rar con los logs procesados.";
+        String subject = "Reporte de Archivos de Logs";
+        String message = "Puede encontrar los archivos en detalle y agrupados en "
+                + "archivos .RAR en el enlace:\n\thttps://drive.google.com/drive/folders/1rrnAwRPLm8vq-OBCKfzG01mWKT2BacY8?usp=sharing";
 
-        // Archivos adjuntos
-        String[] attachFiles = new String[2];
-        attachFiles[0] = "logs_with_errors.rar";  // Archivo con errores
-        attachFiles[1] = "logs_without_errors.rar";  // Archivo sin errores
+//        // Archivos adjuntos
+//        String[] attachFiles = new String[2];
+//        attachFiles[0] = "logs_with_errors.rar";  // Archivo con errores
+//        attachFiles[1] = "logs_without_errors.rar";  // Archivo sin errores
 
         try {
             EnvioCorreo mailer = new EnvioCorreo(host, port, user, password);
-            mailer.sendEmailWithAttachments(toAddress, subject, message, attachFiles);
+            mailer.sendEmailWithAttachments(toAddress, subject, message);
         } catch (MessagingException ex) {
             ex.printStackTrace();
         }

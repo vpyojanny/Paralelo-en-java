@@ -162,12 +162,12 @@ public class ProcesadorArchivos {
         attachFiles[0] = "logs_with_errors.rar";
         attachFiles[1] = "logs_without_errors.rar";
 
-        try {
-            EnvioCorreo mailer = new EnvioCorreo(host, port, user, password);
-            mailer.sendEmailWithAttachments(toAddress, subject, message, attachFiles);
-        } catch (MessagingException ex) {
-            ex.printStackTrace();
-        }
+//        try {
+//            EnvioCorreo mailer = new EnvioCorreo(host, port, user, password);
+//            mailer.sendEmailWithAttachments(toAddress, subject, message, attachFiles);
+//        } catch (MessagingException ex) {
+//            ex.printStackTrace();
+//        }
     }
 
     public static void main(String[] args) {

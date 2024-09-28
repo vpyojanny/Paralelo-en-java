@@ -1,3 +1,0 @@
-[2024-09-25 10:23:11] ERROR: Connection failed to database 'clients_db'
-[2024-09-25 10:24:15] INFO: Retrying connection...
-[2024-09-25 10:24:16] ERROR: Connection attempt timed out.
