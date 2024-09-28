@@ -1,0 +1,3 @@
+[2024-09-25 10:23:11] ERROR: Sample error message for log 117
+[2024-09-25 10:24:15] INFO: Retrying action in log 117
+[2024-09-25 10:24:16] ERROR: Another error occurred in log 117.

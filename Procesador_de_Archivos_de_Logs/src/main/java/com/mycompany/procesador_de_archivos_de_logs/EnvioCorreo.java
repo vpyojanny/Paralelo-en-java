@@ -90,7 +90,7 @@ public class EnvioCorreo {
         System.out.println("Correo enviado con éxito.");
     }
 
-    public static void main() {
+    public static void main(String mail) {
         // Configuración de ejemplo para SMTP (Gmail)
         String host = "smtp.gmail.com";
         String port = "587";
@@ -98,10 +98,11 @@ public class EnvioCorreo {
         String password = "kxrs subb cyjx ftda";  // Tu contraseña
 
         // Receptor del correo
-        String toAddress = "yojannyvp@outlook.es";
+        String toAddress = mail;
         String subject = "Reporte de Archivos de Logs";
         String message = "Puede encontrar los archivos en detalle y agrupados en "
-                + "archivos .RAR en el enlace:\n\thttps://drive.google.com/drive/folders/1rrnAwRPLm8vq-OBCKfzG01mWKT2BacY8?usp=sharing";
+                + "archivos .RAR en el enlace:\n\t<br>"
+                + "https://drive.google.com/drive/folders/1dEbF1qK9rx7QD-jtKQBa8moC7L_BbE4X?usp=drive_link";
 
 //        // Archivos adjuntos
 //        String[] attachFiles = new String[2];

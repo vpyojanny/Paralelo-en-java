@@ -74,12 +74,14 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         jLabel1.setText("Ruta de los Logs");
 
         Tf_Ruta_Logs.setToolTipText("Inserte la ruta de los logs en formato TXT");
+        Tf_Ruta_Logs.setMaximumSize(new java.awt.Dimension(64, 22));
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ruta de los Archivos Comprimidos");
 
         Tf_Ruta_Rar.setToolTipText("Inserte la ruta de los logs en formato TXT");
+        Tf_Ruta_Rar.setMaximumSize(new java.awt.Dimension(64, 22));
 
         Btn_Gen_Logs.setText("Generar Logs");
         Btn_Gen_Logs.addActionListener(new java.awt.event.ActionListener() {
@@ -89,12 +91,18 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         });
 
         Gen_Proc.setText("Ejecutar Procesos");
+        Gen_Proc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Gen_ProcActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Enviar Archivos al Correo:");
 
         Tf_Ruta_Rar1.setToolTipText("Inserte la ruta de los logs en formato TXT");
+        Tf_Ruta_Rar1.setMaximumSize(new java.awt.Dimension(64, 22));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -106,15 +114,15 @@ public class Pantalla_Principal extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Tf_Ruta_Rar1))
+                        .addComponent(Tf_Ruta_Rar1, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Tf_Ruta_Logs, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Tf_Ruta_Logs, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Tf_Ruta_Rar)))
+                        .addComponent(Tf_Ruta_Rar, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Gen_Proc)
@@ -192,7 +200,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
                             .addComponent(Lbl_Correo)
                             .addComponent(Lbl_Anal)
                             .addComponent(Lbl_Comp))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 270, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(377, 377, 377)
@@ -253,17 +261,25 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         String ruta_logs    =   Pantalla_Principal.this.Tf_Ruta_Logs.getText();
         if(ruta_logs.length()   >   0){
             txt_Results.setText(txt_Results.getText()+GenerarArchivos.main(ruta_logs));
-//            int[] arreglo=new int[2];
-//            arreglo=ContadorLogs.main(ruta_logs);
-//            Lbl_Cantidad_Errores.setText("Logs con Errores: "+arreglo[1]);
-//            Lbl_Cantidad_S_Errores.setText("Logs con Errores: "+arreglo[0]);
-            iniciarProcesos(ruta_logs);
         }
         else{
             JOptionPane.showMessageDialog(null, "Debe rellenar el campo de la ruta de los logs.");
             Pantalla_Principal.this.Tf_Ruta_Logs.grabFocus();
         }
     }//GEN-LAST:event_Btn_Gen_LogsActionPerformed
+
+    private void Gen_ProcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Gen_ProcActionPerformed
+        // TODO add your handling code here:
+        String ruta_logs    =   Pantalla_Principal.this.Tf_Ruta_Logs.getText();
+        String ruta_comp    =   Pantalla_Principal.this.Tf_Ruta_Rar.getText();
+        if(ruta_logs.length()   >   0){
+            iniciarProcesos(ruta_logs, ruta_comp);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debe rellenar el campo de la ruta de los logs.");
+            Pantalla_Principal.this.Tf_Ruta_Logs.grabFocus();
+        }
+    }//GEN-LAST:event_Gen_ProcActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,7 +316,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         });
     }
     
-    public void iniciarProcesos(String ruta) {
+    public void iniciarProcesos(String ruta, String ruta_cmp) {
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         //int[] arreglo=new int[2];
         try {
@@ -326,7 +342,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
 //                } catch (IOException e) {
 //                    e.printStackTrace();
 //                }
-                ComprimirArchivos.main(ruta);
+                ComprimirArchivos.main(ruta, ruta_cmp);
                 long endTime = System.currentTimeMillis();
                 //System.out.println("Proceso 2 (Compresión de archivos) terminó en: " + (endTime - startTime) + " ms");
                 String mensaje="\nProceso 2 (Compresión de archivos) terminó en: " + (endTime - startTime) + " ms";
@@ -342,7 +358,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
 //                } catch (MessagingException e) {
 //                    e.printStackTrace();
 //                }
-                EnvioCorreo.main();
+                EnvioCorreo.main(this.Tf_Ruta_Rar1.getText());
                 long endTime = System.currentTimeMillis();
                 String mensaje="\nProceso 3 (Envío de correo) terminó en: " + (endTime - startTime) + " ms";
                 this.txt_Results.setText(this.txt_Results.getText()+mensaje);

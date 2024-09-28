@@ -23,14 +23,14 @@ public class GenerarArchivos {
 // Cambia esto por tu directorio de pruebas
 
         // Generar logs con errores
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 264; i++) {
             String logFileName = logDirectory + "/log_error_" + i + ".txt";
             String logContent = generateErrorLog(i);
             createLogFile(logFileName, logContent);
         }
 
         // Generar logs sin errores
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 523; i++) {
             String logFileName = logDirectory + "/log_no_error_" + i + ".txt";
             String logContent = generateNoErrorLog(i);
             createLogFile(logFileName, logContent);

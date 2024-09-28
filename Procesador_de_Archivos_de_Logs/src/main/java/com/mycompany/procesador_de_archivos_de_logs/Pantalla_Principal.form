@@ -79,17 +79,17 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Tf_Ruta_Rar1" max="32767" attributes="0"/>
+                          <Component id="Tf_Ruta_Rar1" pref="425" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Tf_Ruta_Logs" min="-2" pref="583" max="-2" attributes="0"/>
+                          <Component id="Tf_Ruta_Logs" pref="583" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Tf_Ruta_Rar" max="32767" attributes="0"/>
+                          <Component id="Tf_Ruta_Rar" pref="425" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -144,6 +144,9 @@
         <Component class="javax.swing.JTextField" name="Tf_Ruta_Logs">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Inserte la ruta de los logs en formato TXT"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[64, 22]"/>
+            </Property>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -163,6 +166,9 @@
         <Component class="javax.swing.JTextField" name="Tf_Ruta_Rar">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Inserte la ruta de los logs en formato TXT"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[64, 22]"/>
+            </Property>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -180,6 +186,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ejecutar Procesos"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Gen_ProcActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -195,6 +204,9 @@
         <Component class="javax.swing.JTextField" name="Tf_Ruta_Rar1">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Inserte la ruta de los logs en formato TXT"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[64, 22]"/>
+            </Property>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -238,7 +250,7 @@
                               <Component id="Lbl_Anal" min="-2" max="-2" attributes="0"/>
                               <Component id="Lbl_Comp" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="270" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>

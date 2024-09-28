@@ -26,10 +26,10 @@ import javax.swing.JOptionPane;
  */
 public class ComprimirArchivos {
     
-    public static void main(String ruta){
+    public static void main(String ruta, String ruta_cmp){
         ComprimirArchivos compresor=new ComprimirArchivos();
         int[] arreglo   =   new int[2];
-        compresor.compressErrorAndNonErrorFiles(ruta);
+        compresor.compressErrorAndNonErrorFiles(ruta, ruta_cmp);
         //JOptionPane.showMessageDialog(null, "Cmp: "+ruta);
     }
     
@@ -56,7 +56,7 @@ public class ComprimirArchivos {
     }
 
     // Comprimir archivos con errores y sin errores
-    public void compressErrorAndNonErrorFiles(String ruta) {
+    public void compressErrorAndNonErrorFiles(String ruta, String ruta_cmp) {
         List<File> txtFiles = getTxtFiles(ruta);
         List<File> errorFiles = new ArrayList<>();
         List<File> nonErrorFiles = new ArrayList<>();
@@ -70,10 +70,10 @@ public class ComprimirArchivos {
         }
 //        JOptionPane.showMessageDialog(null, ruta);
         // Comprimir archivos con errores
-        compressFiles(errorFiles, ruta+"\\Archivos_Con_Errores.rar");
+        compressFiles(errorFiles, ruta_cmp+"\\Archivos_Con_Errores.rar");
 
         // Comprimir archivos sin errores
-        compressFiles(nonErrorFiles, ruta+"\\Archivos_Sin_Errores.rar");
+        compressFiles(nonErrorFiles, ruta_cmp+"\\Archivos_Sin_Errores.rar");
 
         System.out.println("Archivos comprimidos correctamente.");
     }
